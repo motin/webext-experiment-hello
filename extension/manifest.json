@@ -8,17 +8,6 @@
     "gecko": { "id": "embedded-test@mozilla.org" }
   },
 
-  "experiment_apis": {
-    "hello": {
-      "schema": "schema.json",
-      "parent": {
-        "scopes": ["addon_parent"],
-        "script": "hello.js",
-        "paths": [["hello"]]
-      }
-    }
-  },
-
   "browser_action": {
     "browser_style": true,
     "default_title": "default title"

@@ -19,18 +19,18 @@ this.hello = class extends ExtensionAPI {
         async hello() {
           helloEventEmitter.emitHelloEvent();
           return "Hello, world!";
-        }
-      },
-      onSomething: new EventManager(context, "hello.onSomething", fire => {
-        const callback = value => {
-          console.log("Firing hello-event from hello experiments API");
-          fire.async(value);
-        };
-        helloEventEmitter.on("hello-event", callback);
-        return () => {
-          helloEventEmitter.off("hello-event", callback);
-        };
-      }).api()
+        },
+        onSomething: new EventManager(context, "hello.onSomething", fire => {
+          const callback = value => {
+            console.log("Firing hello-event from hello experiments API");
+            fire.async(value);
+          };
+          helloEventEmitter.on("hello-event", callback);
+          return () => {
+            helloEventEmitter.off("hello-event", callback);
+          };
+        }).api()
+      }
     };
   }
 }
